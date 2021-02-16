@@ -24,33 +24,48 @@ namespace Edgify {
     static PredictionReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChBwcmVkaWN0aW9uLnByb3RvEgZlZGdpZnkiHgoOUHJlZGljdGlvbkl0ZW0S",
-            "DAoEZGF0YRgBIAMoCSKfAQoKUHJlZGljdGlvbhIMCgR1dWlkGAEgASgJEhAK",
-            "CGR1cmF0aW9uGAIgASgNEhQKDHByZWRpY3RlZF9hdBgDIAEoCRIQCghtb2Rl",
-            "bF9pZBgEIAEoDRIrCgtwcmVkaWN0aW9ucxgFIAMoCzIWLmVkZ2lmeS5QcmVk",
-            "aWN0aW9uSXRlbRIcCgVpbWFnZRgGIAEoCzINLmVkZ2lmeS5JbWFnZSIkCgVJ",
-            "bWFnZRIMCgR1dWlkGAEgASgJEg0KBWltYWdlGAIgASgMIkQKC0dyb3VuZFRy",
-            "dXRoEiYKCnByZWRpY3Rpb24YASABKAsyEi5lZGdpZnkuUHJlZGljdGlvbhIN",
-            "CgVsYWJlbBgCIAEoCSITChFQcmVkaWN0aW9uUmVxdWVzdCI8ChJQcmVkaWN0",
-            "aW9uUmVzcG9uc2USJgoKcHJlZGljdGlvbhgBIAEoCzISLmVkZ2lmeS5QcmVk",
-            "aWN0aW9uIj8KEkdyb3VuZFRydXRoUmVxdWVzdBIpCgxncm91bmRfdHJ1dGgY",
-            "ASABKAsyEy5lZGdpZnkuR3JvdW5kVHJ1dGgiFQoTR3JvdW5kVHJ1dGhSZXNw",
-            "b25zZTKpAQoNRWRnaWZ5U2VydmljZRJICg1HZXRQcmVkaWN0aW9uEhkuZWRn",
-            "aWZ5LlByZWRpY3Rpb25SZXF1ZXN0GhouZWRnaWZ5LlByZWRpY3Rpb25SZXNw",
-            "b25zZSIAEk4KEUNyZWF0ZUdyb3VuZFRydXRoEhouZWRnaWZ5Lkdyb3VuZFRy",
-            "dXRoUmVxdWVzdBobLmVkZ2lmeS5Hcm91bmRUcnV0aFJlc3BvbnNlIgBCCloI",
-            "ZWRnaWZ5cGJiBnByb3RvMw=="));
+            "ChBwcmVkaWN0aW9uLnByb3RvEgZlZGdpZnkaH2dvb2dsZS9wcm90b2J1Zi90",
+            "aW1lc3RhbXAucHJvdG8iHgoOUHJlZGljdGlvbkl0ZW0SDAoEZGF0YRgBIAMo",
+            "CSKvAQoKUHJlZGljdGlvbhIMCgR1dWlkGAEgASgJEhAKCGR1cmF0aW9uGAIg",
+            "ASgNEhQKDHByZWRpY3RlZF9hdBgDIAEoCRIQCghtb2RlbF9pZBgEIAEoDRIr",
+            "CgtwcmVkaWN0aW9ucxgFIAMoCzIWLmVkZ2lmeS5QcmVkaWN0aW9uSXRlbRIc",
+            "CgVpbWFnZRgGIAEoCzINLmVkZ2lmeS5JbWFnZRIOCgZzb3VyY2UYByABKAki",
+            "NgoFSW1hZ2USDAoEdXVpZBgBIAEoCRINCgVpbWFnZRgCIAEoDBIQCghncm91",
+            "cF9pZBgDIAEoCSKaAQoPTW9kZWxEZXBsb3ltZW50EgoKAmlkGAEgASgNEhAK",
+            "CG1vZGVsX2lkGAIgASgNEhIKCm1vZGVsX3BhdGgYAyABKAkSEwoLY29uZmln",
+            "X3BhdGgYBCABKAkSEAoIdmVyaWZpZWQYBSABKAgSLgoKY3JlYXRlZF9hdBgG",
+            "IAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAiVAoLR3JvdW5kVHJ1",
+            "dGgSJgoKcHJlZGljdGlvbhgBIAEoCzISLmVkZ2lmeS5QcmVkaWN0aW9uEg0K",
+            "BWxhYmVsGAIgASgJEg4KBnNvdXJjZRgDIAEoCSJcChFQcmVkaWN0aW9uUmVx",
+            "dWVzdBIcCgVpbWFnZRgBIAEoCzINLmVkZ2lmeS5JbWFnZRIZChF3aXRob3V0",
+            "UHJlZGljdGlvbhgCIAEoCBIOCgZzb3VyY2UYAyABKAkiPAoSUHJlZGljdGlv",
+            "blJlc3BvbnNlEiYKCnByZWRpY3Rpb24YASABKAsyEi5lZGdpZnkuUHJlZGlj",
+            "dGlvbiJPChJHcm91bmRUcnV0aFJlcXVlc3QSKQoMZ3JvdW5kX3RydXRoGAEg",
+            "ASgLMhMuZWRnaWZ5Lkdyb3VuZFRydXRoEg4KBnNvdXJjZRgCIAEoCSIVChNH",
+            "cm91bmRUcnV0aFJlc3BvbnNlIiIKIEdldEN1cnJlbnRNb2RlbERlcGxveW1l",
+            "bnRSZXF1ZXN0IlYKIUdldEN1cnJlbnRNb2RlbERlcGxveW1lbnRSZXNwb25z",
+            "ZRIxChBtb2RlbF9kZXBsb3ltZW50GAEgASgLMhcuZWRnaWZ5Lk1vZGVsRGVw",
+            "bG95bWVudDKdAgoNRWRnaWZ5U2VydmljZRJICg1HZXRQcmVkaWN0aW9uEhku",
+            "ZWRnaWZ5LlByZWRpY3Rpb25SZXF1ZXN0GhouZWRnaWZ5LlByZWRpY3Rpb25S",
+            "ZXNwb25zZSIAEk4KEUNyZWF0ZUdyb3VuZFRydXRoEhouZWRnaWZ5Lkdyb3Vu",
+            "ZFRydXRoUmVxdWVzdBobLmVkZ2lmeS5Hcm91bmRUcnV0aFJlc3BvbnNlIgAS",
+            "cgoZR2V0Q3VycmVudE1vZGVsRGVwbG95bWVudBIoLmVkZ2lmeS5HZXRDdXJy",
+            "ZW50TW9kZWxEZXBsb3ltZW50UmVxdWVzdBopLmVkZ2lmeS5HZXRDdXJyZW50",
+            "TW9kZWxEZXBsb3ltZW50UmVzcG9uc2UiAEIKWghlZGdpZnlwYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.PredictionItem), global::Edgify.PredictionItem.Parser, new[]{ "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.Prediction), global::Edgify.Prediction.Parser, new[]{ "Uuid", "Duration", "PredictedAt", "ModelId", "Predictions", "Image" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.Image), global::Edgify.Image.Parser, new[]{ "Uuid", "Image_" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.GroundTruth), global::Edgify.GroundTruth.Parser, new[]{ "Prediction", "Label" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.PredictionRequest), global::Edgify.PredictionRequest.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.Prediction), global::Edgify.Prediction.Parser, new[]{ "Uuid", "Duration", "PredictedAt", "ModelId", "Predictions", "Image", "Source" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.Image), global::Edgify.Image.Parser, new[]{ "Uuid", "Image_", "GroupId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.ModelDeployment), global::Edgify.ModelDeployment.Parser, new[]{ "Id", "ModelId", "ModelPath", "ConfigPath", "Verified", "CreatedAt" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.GroundTruth), global::Edgify.GroundTruth.Parser, new[]{ "Prediction", "Label", "Source" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.PredictionRequest), global::Edgify.PredictionRequest.Parser, new[]{ "Image", "WithoutPrediction", "Source" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.PredictionResponse), global::Edgify.PredictionResponse.Parser, new[]{ "Prediction" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.GroundTruthRequest), global::Edgify.GroundTruthRequest.Parser, new[]{ "GroundTruth" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.GroundTruthResponse), global::Edgify.GroundTruthResponse.Parser, null, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.GroundTruthRequest), global::Edgify.GroundTruthRequest.Parser, new[]{ "GroundTruth", "Source" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.GroundTruthResponse), global::Edgify.GroundTruthResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.GetCurrentModelDeploymentRequest), global::Edgify.GetCurrentModelDeploymentRequest.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.GetCurrentModelDeploymentResponse), global::Edgify.GetCurrentModelDeploymentResponse.Parser, new[]{ "ModelDeployment" }, null, null, null, null)
           }));
     }
     #endregion
@@ -209,6 +224,7 @@ namespace Edgify {
       modelId_ = other.modelId_;
       predictions_ = other.predictions_.Clone();
       image_ = other.image_ != null ? other.image_.Clone() : null;
+      source_ = other.source_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -282,6 +298,17 @@ namespace Edgify {
       }
     }
 
+    /// <summary>Field number for the "source" field.</summary>
+    public const int SourceFieldNumber = 7;
+    private string source_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Source {
+      get { return source_; }
+      set {
+        source_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Prediction);
@@ -301,6 +328,7 @@ namespace Edgify {
       if (ModelId != other.ModelId) return false;
       if(!predictions_.Equals(other.predictions_)) return false;
       if (!object.Equals(Image, other.Image)) return false;
+      if (Source != other.Source) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -313,6 +341,7 @@ namespace Edgify {
       if (ModelId != 0) hash ^= ModelId.GetHashCode();
       hash ^= predictions_.GetHashCode();
       if (image_ != null) hash ^= Image.GetHashCode();
+      if (Source.Length != 0) hash ^= Source.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -347,6 +376,10 @@ namespace Edgify {
         output.WriteRawTag(50);
         output.WriteMessage(Image);
       }
+      if (Source.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(Source);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -370,6 +403,9 @@ namespace Edgify {
       size += predictions_.CalculateSize(_repeated_predictions_codec);
       if (image_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Image);
+      }
+      if (Source.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Source);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -400,6 +436,9 @@ namespace Edgify {
           Image = new global::Edgify.Image();
         }
         Image.MergeFrom(other.Image);
+      }
+      if (other.Source.Length != 0) {
+        Source = other.Source;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -439,6 +478,10 @@ namespace Edgify {
             input.ReadMessage(Image);
             break;
           }
+          case 58: {
+            Source = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -472,6 +515,7 @@ namespace Edgify {
     public Image(Image other) : this() {
       uuid_ = other.uuid_;
       image_ = other.image_;
+      groupId_ = other.groupId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -502,6 +546,17 @@ namespace Edgify {
       }
     }
 
+    /// <summary>Field number for the "group_id" field.</summary>
+    public const int GroupIdFieldNumber = 3;
+    private string groupId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string GroupId {
+      get { return groupId_; }
+      set {
+        groupId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Image);
@@ -517,6 +572,7 @@ namespace Edgify {
       }
       if (Uuid != other.Uuid) return false;
       if (Image_ != other.Image_) return false;
+      if (GroupId != other.GroupId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -525,6 +581,7 @@ namespace Edgify {
       int hash = 1;
       if (Uuid.Length != 0) hash ^= Uuid.GetHashCode();
       if (Image_.Length != 0) hash ^= Image_.GetHashCode();
+      if (GroupId.Length != 0) hash ^= GroupId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -546,6 +603,10 @@ namespace Edgify {
         output.WriteRawTag(18);
         output.WriteBytes(Image_);
       }
+      if (GroupId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(GroupId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -559,6 +620,9 @@ namespace Edgify {
       }
       if (Image_.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Image_);
+      }
+      if (GroupId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(GroupId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -576,6 +640,9 @@ namespace Edgify {
       }
       if (other.Image_.Length != 0) {
         Image_ = other.Image_;
+      }
+      if (other.GroupId.Length != 0) {
+        GroupId = other.GroupId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -596,6 +663,285 @@ namespace Edgify {
             Image_ = input.ReadBytes();
             break;
           }
+          case 26: {
+            GroupId = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class ModelDeployment : pb::IMessage<ModelDeployment> {
+    private static readonly pb::MessageParser<ModelDeployment> _parser = new pb::MessageParser<ModelDeployment>(() => new ModelDeployment());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ModelDeployment> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Edgify.PredictionReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ModelDeployment() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ModelDeployment(ModelDeployment other) : this() {
+      id_ = other.id_;
+      modelId_ = other.modelId_;
+      modelPath_ = other.modelPath_;
+      configPath_ = other.configPath_;
+      verified_ = other.verified_;
+      createdAt_ = other.createdAt_ != null ? other.createdAt_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ModelDeployment Clone() {
+      return new ModelDeployment(this);
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private uint id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "model_id" field.</summary>
+    public const int ModelIdFieldNumber = 2;
+    private uint modelId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint ModelId {
+      get { return modelId_; }
+      set {
+        modelId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "model_path" field.</summary>
+    public const int ModelPathFieldNumber = 3;
+    private string modelPath_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ModelPath {
+      get { return modelPath_; }
+      set {
+        modelPath_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "config_path" field.</summary>
+    public const int ConfigPathFieldNumber = 4;
+    private string configPath_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ConfigPath {
+      get { return configPath_; }
+      set {
+        configPath_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "verified" field.</summary>
+    public const int VerifiedFieldNumber = 5;
+    private bool verified_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Verified {
+      get { return verified_; }
+      set {
+        verified_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "created_at" field.</summary>
+    public const int CreatedAtFieldNumber = 6;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp createdAt_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp CreatedAt {
+      get { return createdAt_; }
+      set {
+        createdAt_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ModelDeployment);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ModelDeployment other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Id != other.Id) return false;
+      if (ModelId != other.ModelId) return false;
+      if (ModelPath != other.ModelPath) return false;
+      if (ConfigPath != other.ConfigPath) return false;
+      if (Verified != other.Verified) return false;
+      if (!object.Equals(CreatedAt, other.CreatedAt)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Id != 0) hash ^= Id.GetHashCode();
+      if (ModelId != 0) hash ^= ModelId.GetHashCode();
+      if (ModelPath.Length != 0) hash ^= ModelPath.GetHashCode();
+      if (ConfigPath.Length != 0) hash ^= ConfigPath.GetHashCode();
+      if (Verified != false) hash ^= Verified.GetHashCode();
+      if (createdAt_ != null) hash ^= CreatedAt.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Id);
+      }
+      if (ModelId != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(ModelId);
+      }
+      if (ModelPath.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(ModelPath);
+      }
+      if (ConfigPath.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(ConfigPath);
+      }
+      if (Verified != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(Verified);
+      }
+      if (createdAt_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(CreatedAt);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
+      }
+      if (ModelId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ModelId);
+      }
+      if (ModelPath.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ModelPath);
+      }
+      if (ConfigPath.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ConfigPath);
+      }
+      if (Verified != false) {
+        size += 1 + 1;
+      }
+      if (createdAt_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CreatedAt);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ModelDeployment other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
+      }
+      if (other.ModelId != 0) {
+        ModelId = other.ModelId;
+      }
+      if (other.ModelPath.Length != 0) {
+        ModelPath = other.ModelPath;
+      }
+      if (other.ConfigPath.Length != 0) {
+        ConfigPath = other.ConfigPath;
+      }
+      if (other.Verified != false) {
+        Verified = other.Verified;
+      }
+      if (other.createdAt_ != null) {
+        if (createdAt_ == null) {
+          CreatedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        CreatedAt.MergeFrom(other.CreatedAt);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Id = input.ReadUInt32();
+            break;
+          }
+          case 16: {
+            ModelId = input.ReadUInt32();
+            break;
+          }
+          case 26: {
+            ModelPath = input.ReadString();
+            break;
+          }
+          case 34: {
+            ConfigPath = input.ReadString();
+            break;
+          }
+          case 40: {
+            Verified = input.ReadBool();
+            break;
+          }
+          case 50: {
+            if (createdAt_ == null) {
+              CreatedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(CreatedAt);
+            break;
+          }
         }
       }
     }
@@ -610,7 +956,7 @@ namespace Edgify {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Edgify.PredictionReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Edgify.PredictionReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -629,6 +975,7 @@ namespace Edgify {
     public GroundTruth(GroundTruth other) : this() {
       prediction_ = other.prediction_ != null ? other.prediction_.Clone() : null;
       label_ = other.label_;
+      source_ = other.source_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -659,6 +1006,17 @@ namespace Edgify {
       }
     }
 
+    /// <summary>Field number for the "source" field.</summary>
+    public const int SourceFieldNumber = 3;
+    private string source_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Source {
+      get { return source_; }
+      set {
+        source_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as GroundTruth);
@@ -674,6 +1032,7 @@ namespace Edgify {
       }
       if (!object.Equals(Prediction, other.Prediction)) return false;
       if (Label != other.Label) return false;
+      if (Source != other.Source) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -682,6 +1041,7 @@ namespace Edgify {
       int hash = 1;
       if (prediction_ != null) hash ^= Prediction.GetHashCode();
       if (Label.Length != 0) hash ^= Label.GetHashCode();
+      if (Source.Length != 0) hash ^= Source.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -703,6 +1063,10 @@ namespace Edgify {
         output.WriteRawTag(18);
         output.WriteString(Label);
       }
+      if (Source.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Source);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -716,6 +1080,9 @@ namespace Edgify {
       }
       if (Label.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Label);
+      }
+      if (Source.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Source);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -736,6 +1103,9 @@ namespace Edgify {
       }
       if (other.Label.Length != 0) {
         Label = other.Label;
+      }
+      if (other.Source.Length != 0) {
+        Source = other.Source;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -759,6 +1129,10 @@ namespace Edgify {
             Label = input.ReadString();
             break;
           }
+          case 26: {
+            Source = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -773,7 +1147,7 @@ namespace Edgify {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Edgify.PredictionReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Edgify.PredictionReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -790,12 +1164,48 @@ namespace Edgify {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PredictionRequest(PredictionRequest other) : this() {
+      image_ = other.image_ != null ? other.image_.Clone() : null;
+      withoutPrediction_ = other.withoutPrediction_;
+      source_ = other.source_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PredictionRequest Clone() {
       return new PredictionRequest(this);
+    }
+
+    /// <summary>Field number for the "image" field.</summary>
+    public const int ImageFieldNumber = 1;
+    private global::Edgify.Image image_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Edgify.Image Image {
+      get { return image_; }
+      set {
+        image_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "withoutPrediction" field.</summary>
+    public const int WithoutPredictionFieldNumber = 2;
+    private bool withoutPrediction_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool WithoutPrediction {
+      get { return withoutPrediction_; }
+      set {
+        withoutPrediction_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "source" field.</summary>
+    public const int SourceFieldNumber = 3;
+    private string source_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Source {
+      get { return source_; }
+      set {
+        source_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -811,12 +1221,18 @@ namespace Edgify {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(Image, other.Image)) return false;
+      if (WithoutPrediction != other.WithoutPrediction) return false;
+      if (Source != other.Source) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (image_ != null) hash ^= Image.GetHashCode();
+      if (WithoutPrediction != false) hash ^= WithoutPrediction.GetHashCode();
+      if (Source.Length != 0) hash ^= Source.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -830,6 +1246,18 @@ namespace Edgify {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+      if (image_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Image);
+      }
+      if (WithoutPrediction != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(WithoutPrediction);
+      }
+      if (Source.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Source);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -838,6 +1266,15 @@ namespace Edgify {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (image_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Image);
+      }
+      if (WithoutPrediction != false) {
+        size += 1 + 1;
+      }
+      if (Source.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Source);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -848,6 +1285,18 @@ namespace Edgify {
     public void MergeFrom(PredictionRequest other) {
       if (other == null) {
         return;
+      }
+      if (other.image_ != null) {
+        if (image_ == null) {
+          Image = new global::Edgify.Image();
+        }
+        Image.MergeFrom(other.Image);
+      }
+      if (other.WithoutPrediction != false) {
+        WithoutPrediction = other.WithoutPrediction;
+      }
+      if (other.Source.Length != 0) {
+        Source = other.Source;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -860,6 +1309,21 @@ namespace Edgify {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 10: {
+            if (image_ == null) {
+              Image = new global::Edgify.Image();
+            }
+            input.ReadMessage(Image);
+            break;
+          }
+          case 16: {
+            WithoutPrediction = input.ReadBool();
+            break;
+          }
+          case 26: {
+            Source = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -874,7 +1338,7 @@ namespace Edgify {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Edgify.PredictionReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Edgify.PredictionReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1009,7 +1473,7 @@ namespace Edgify {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Edgify.PredictionReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Edgify.PredictionReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1027,6 +1491,7 @@ namespace Edgify {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public GroundTruthRequest(GroundTruthRequest other) : this() {
       groundTruth_ = other.groundTruth_ != null ? other.groundTruth_.Clone() : null;
+      source_ = other.source_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1046,6 +1511,17 @@ namespace Edgify {
       }
     }
 
+    /// <summary>Field number for the "source" field.</summary>
+    public const int SourceFieldNumber = 2;
+    private string source_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Source {
+      get { return source_; }
+      set {
+        source_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as GroundTruthRequest);
@@ -1060,6 +1536,7 @@ namespace Edgify {
         return true;
       }
       if (!object.Equals(GroundTruth, other.GroundTruth)) return false;
+      if (Source != other.Source) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1067,6 +1544,7 @@ namespace Edgify {
     public override int GetHashCode() {
       int hash = 1;
       if (groundTruth_ != null) hash ^= GroundTruth.GetHashCode();
+      if (Source.Length != 0) hash ^= Source.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1084,6 +1562,10 @@ namespace Edgify {
         output.WriteRawTag(10);
         output.WriteMessage(GroundTruth);
       }
+      if (Source.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Source);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1094,6 +1576,9 @@ namespace Edgify {
       int size = 0;
       if (groundTruth_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(GroundTruth);
+      }
+      if (Source.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Source);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1111,6 +1596,9 @@ namespace Edgify {
           GroundTruth = new global::Edgify.GroundTruth();
         }
         GroundTruth.MergeFrom(other.GroundTruth);
+      }
+      if (other.Source.Length != 0) {
+        Source = other.Source;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1130,6 +1618,10 @@ namespace Edgify {
             input.ReadMessage(GroundTruth);
             break;
           }
+          case 18: {
+            Source = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -1144,7 +1636,7 @@ namespace Edgify {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Edgify.PredictionReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Edgify.PredictionReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1231,6 +1723,242 @@ namespace Edgify {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class GetCurrentModelDeploymentRequest : pb::IMessage<GetCurrentModelDeploymentRequest> {
+    private static readonly pb::MessageParser<GetCurrentModelDeploymentRequest> _parser = new pb::MessageParser<GetCurrentModelDeploymentRequest>(() => new GetCurrentModelDeploymentRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<GetCurrentModelDeploymentRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Edgify.PredictionReflection.Descriptor.MessageTypes[9]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetCurrentModelDeploymentRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetCurrentModelDeploymentRequest(GetCurrentModelDeploymentRequest other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetCurrentModelDeploymentRequest Clone() {
+      return new GetCurrentModelDeploymentRequest(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as GetCurrentModelDeploymentRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(GetCurrentModelDeploymentRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(GetCurrentModelDeploymentRequest other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class GetCurrentModelDeploymentResponse : pb::IMessage<GetCurrentModelDeploymentResponse> {
+    private static readonly pb::MessageParser<GetCurrentModelDeploymentResponse> _parser = new pb::MessageParser<GetCurrentModelDeploymentResponse>(() => new GetCurrentModelDeploymentResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<GetCurrentModelDeploymentResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Edgify.PredictionReflection.Descriptor.MessageTypes[10]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetCurrentModelDeploymentResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetCurrentModelDeploymentResponse(GetCurrentModelDeploymentResponse other) : this() {
+      modelDeployment_ = other.modelDeployment_ != null ? other.modelDeployment_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetCurrentModelDeploymentResponse Clone() {
+      return new GetCurrentModelDeploymentResponse(this);
+    }
+
+    /// <summary>Field number for the "model_deployment" field.</summary>
+    public const int ModelDeploymentFieldNumber = 1;
+    private global::Edgify.ModelDeployment modelDeployment_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Edgify.ModelDeployment ModelDeployment {
+      get { return modelDeployment_; }
+      set {
+        modelDeployment_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as GetCurrentModelDeploymentResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(GetCurrentModelDeploymentResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(ModelDeployment, other.ModelDeployment)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (modelDeployment_ != null) hash ^= ModelDeployment.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (modelDeployment_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(ModelDeployment);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (modelDeployment_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ModelDeployment);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(GetCurrentModelDeploymentResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.modelDeployment_ != null) {
+        if (modelDeployment_ == null) {
+          ModelDeployment = new global::Edgify.ModelDeployment();
+        }
+        ModelDeployment.MergeFrom(other.ModelDeployment);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (modelDeployment_ == null) {
+              ModelDeployment = new global::Edgify.ModelDeployment();
+            }
+            input.ReadMessage(ModelDeployment);
+            break;
+          }
         }
       }
     }

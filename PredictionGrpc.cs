@@ -16,6 +16,8 @@ namespace Edgify {
     static readonly grpc::Marshaller<global::Edgify.PredictionResponse> __Marshaller_edgify_PredictionResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Edgify.PredictionResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Edgify.GroundTruthRequest> __Marshaller_edgify_GroundTruthRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Edgify.GroundTruthRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Edgify.GroundTruthResponse> __Marshaller_edgify_GroundTruthResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Edgify.GroundTruthResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Edgify.GetCurrentModelDeploymentRequest> __Marshaller_edgify_GetCurrentModelDeploymentRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Edgify.GetCurrentModelDeploymentRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Edgify.GetCurrentModelDeploymentResponse> __Marshaller_edgify_GetCurrentModelDeploymentResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Edgify.GetCurrentModelDeploymentResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Edgify.PredictionRequest, global::Edgify.PredictionResponse> __Method_GetPrediction = new grpc::Method<global::Edgify.PredictionRequest, global::Edgify.PredictionResponse>(
         grpc::MethodType.Unary,
@@ -30,6 +32,13 @@ namespace Edgify {
         "CreateGroundTruth",
         __Marshaller_edgify_GroundTruthRequest,
         __Marshaller_edgify_GroundTruthResponse);
+
+    static readonly grpc::Method<global::Edgify.GetCurrentModelDeploymentRequest, global::Edgify.GetCurrentModelDeploymentResponse> __Method_GetCurrentModelDeployment = new grpc::Method<global::Edgify.GetCurrentModelDeploymentRequest, global::Edgify.GetCurrentModelDeploymentResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetCurrentModelDeployment",
+        __Marshaller_edgify_GetCurrentModelDeploymentRequest,
+        __Marshaller_edgify_GetCurrentModelDeploymentResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -47,6 +56,11 @@ namespace Edgify {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Edgify.GroundTruthResponse> CreateGroundTruth(global::Edgify.GroundTruthRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Edgify.GetCurrentModelDeploymentResponse> GetCurrentModelDeployment(global::Edgify.GetCurrentModelDeploymentRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -108,6 +122,22 @@ namespace Edgify {
       {
         return CallInvoker.AsyncUnaryCall(__Method_CreateGroundTruth, null, options, request);
       }
+      public virtual global::Edgify.GetCurrentModelDeploymentResponse GetCurrentModelDeployment(global::Edgify.GetCurrentModelDeploymentRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetCurrentModelDeployment(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Edgify.GetCurrentModelDeploymentResponse GetCurrentModelDeployment(global::Edgify.GetCurrentModelDeploymentRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetCurrentModelDeployment, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Edgify.GetCurrentModelDeploymentResponse> GetCurrentModelDeploymentAsync(global::Edgify.GetCurrentModelDeploymentRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetCurrentModelDeploymentAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Edgify.GetCurrentModelDeploymentResponse> GetCurrentModelDeploymentAsync(global::Edgify.GetCurrentModelDeploymentRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetCurrentModelDeployment, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override EdgifyServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -121,7 +151,8 @@ namespace Edgify {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_GetPrediction, serviceImpl.GetPrediction)
-          .AddMethod(__Method_CreateGroundTruth, serviceImpl.CreateGroundTruth).Build();
+          .AddMethod(__Method_CreateGroundTruth, serviceImpl.CreateGroundTruth)
+          .AddMethod(__Method_GetCurrentModelDeployment, serviceImpl.GetCurrentModelDeployment).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -132,6 +163,7 @@ namespace Edgify {
     {
       serviceBinder.AddMethod(__Method_GetPrediction, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Edgify.PredictionRequest, global::Edgify.PredictionResponse>(serviceImpl.GetPrediction));
       serviceBinder.AddMethod(__Method_CreateGroundTruth, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Edgify.GroundTruthRequest, global::Edgify.GroundTruthResponse>(serviceImpl.CreateGroundTruth));
+      serviceBinder.AddMethod(__Method_GetCurrentModelDeployment, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Edgify.GetCurrentModelDeploymentRequest, global::Edgify.GetCurrentModelDeploymentResponse>(serviceImpl.GetCurrentModelDeployment));
     }
 
   }
