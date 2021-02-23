@@ -15,15 +15,25 @@ namespace Example
             // take a prediction
             var prediction = sdk.GetPrediction();
             
+            // Autobuy flag
             if (prediction.certain == true) {
                 Console.WriteLine("using Autobuy")
             }
 
-            // after the transaction 
+            // after the transaction create the ground truth
             string label = "banana";
             string source = "Autobuy";
 
             sdk.CreateGroundTruth(prediction, label, source);
+
+            // if you need to delete a sample
+            sdk.DeleteSample(prediction.Uuid);
+
+            // inform edgify on transaction start
+            sdk.StartCustomerTransaction();
+
+            // inform edgify on transaction end
+            sdk.EndCustomerTransaction();
         }
     }
 }

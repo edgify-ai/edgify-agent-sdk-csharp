@@ -8,7 +8,8 @@ namespace Edgify
     {
         EdgifyService.EdgifyServiceClient client;
         AnalyticsServiceClient analytics_client;
-        
+        SamplesServiceClient samples_client;
+
         string host;
         int port;
 
@@ -23,6 +24,7 @@ namespace Edgify
             grpc.Channel channel = new grpc.Channel(host, port, grpc.ChannelCredentials.Insecure);
             this.client = new EdgifyService.EdgifyServiceClient(channel);
             this.analytics_client = new AnalyticsServiceClient(channel);
+            this.samples_client = new SamplesServiceClient(channel);
         }
 
         public Prediction GetPrediction()
@@ -44,19 +46,21 @@ namespace Edgify
             var response = this.client.CreateGroundTruth(request);
         }
         
-        public void DeleteItem()
+        public void DeleteSample(string uuid)
         {
-
+            if !String.IsNullOrEmpty(uuid){
+                this.samples_client.DeleteSample(uuid);
+            }
         }
 
-        public void startCustomerTransaction()
+        public void StartCustomerTransaction()
         {
-
+            this.analytics_client.CreateAnalyticsEvent("TransactionCustomerStart");
         }
 
-        public void endCustomerTransaction()
+        public void EndCustomerTransaction("TransactionCustomerStart")
         {
-            this.
+            this.analytics_client.CreateAnalyticsEvent("TransactionCustomerEnd");
         }
     }
 }
