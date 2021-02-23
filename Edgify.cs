@@ -7,6 +7,8 @@ namespace Edgify
     public class PredictionSdk
     {
         EdgifyService.EdgifyServiceClient client;
+        AnalyticsServiceClient analytics_client;
+        
         string host;
         int port;
 
@@ -20,6 +22,7 @@ namespace Edgify
         {
             grpc.Channel channel = new grpc.Channel(host, port, grpc.ChannelCredentials.Insecure);
             this.client = new EdgifyService.EdgifyServiceClient(channel);
+            this.analytics_client = new AnalyticsServiceClient(channel);
         }
 
         public Prediction GetPrediction()
@@ -29,16 +32,31 @@ namespace Edgify
             return response.Prediction;
         }
 
-        public void CreateGroundTruth(Prediction prediction, string label)
+        public void CreateGroundTruth(Prediction prediction, string label, string source)
         {
             var groundTruth = new GroundTruth();
             groundTruth.Prediction = prediction;
             groundTruth.Label = label;
+            groundTruth.Source = source;
 
             var request = new GroundTruthRequest();
             request.GroundTruth = groundTruth;
             var response = this.client.CreateGroundTruth(request);
         }
+        
+        public void DeleteItem()
+        {
 
+        }
+
+        public void startCustomerTransaction()
+        {
+
+        }
+
+        public void endCustomerTransaction()
+        {
+            this.
+        }
     }
 }

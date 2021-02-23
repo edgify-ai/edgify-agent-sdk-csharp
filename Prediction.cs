@@ -26,37 +26,38 @@ namespace Edgify {
           string.Concat(
             "ChBwcmVkaWN0aW9uLnByb3RvEgZlZGdpZnkaH2dvb2dsZS9wcm90b2J1Zi90",
             "aW1lc3RhbXAucHJvdG8iHgoOUHJlZGljdGlvbkl0ZW0SDAoEZGF0YRgBIAMo",
-            "CSKvAQoKUHJlZGljdGlvbhIMCgR1dWlkGAEgASgJEhAKCGR1cmF0aW9uGAIg",
+            "CSLAAQoKUHJlZGljdGlvbhIMCgR1dWlkGAEgASgJEhAKCGR1cmF0aW9uGAIg",
             "ASgNEhQKDHByZWRpY3RlZF9hdBgDIAEoCRIQCghtb2RlbF9pZBgEIAEoDRIr",
             "CgtwcmVkaWN0aW9ucxgFIAMoCzIWLmVkZ2lmeS5QcmVkaWN0aW9uSXRlbRIc",
-            "CgVpbWFnZRgGIAEoCzINLmVkZ2lmeS5JbWFnZRIOCgZzb3VyY2UYByABKAki",
-            "NgoFSW1hZ2USDAoEdXVpZBgBIAEoCRINCgVpbWFnZRgCIAEoDBIQCghncm91",
-            "cF9pZBgDIAEoCSKaAQoPTW9kZWxEZXBsb3ltZW50EgoKAmlkGAEgASgNEhAK",
-            "CG1vZGVsX2lkGAIgASgNEhIKCm1vZGVsX3BhdGgYAyABKAkSEwoLY29uZmln",
-            "X3BhdGgYBCABKAkSEAoIdmVyaWZpZWQYBSABKAgSLgoKY3JlYXRlZF9hdBgG",
-            "IAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAiVAoLR3JvdW5kVHJ1",
-            "dGgSJgoKcHJlZGljdGlvbhgBIAEoCzISLmVkZ2lmeS5QcmVkaWN0aW9uEg0K",
-            "BWxhYmVsGAIgASgJEg4KBnNvdXJjZRgDIAEoCSJcChFQcmVkaWN0aW9uUmVx",
-            "dWVzdBIcCgVpbWFnZRgBIAEoCzINLmVkZ2lmeS5JbWFnZRIZChF3aXRob3V0",
-            "UHJlZGljdGlvbhgCIAEoCBIOCgZzb3VyY2UYAyABKAkiPAoSUHJlZGljdGlv",
-            "blJlc3BvbnNlEiYKCnByZWRpY3Rpb24YASABKAsyEi5lZGdpZnkuUHJlZGlj",
-            "dGlvbiJPChJHcm91bmRUcnV0aFJlcXVlc3QSKQoMZ3JvdW5kX3RydXRoGAEg",
-            "ASgLMhMuZWRnaWZ5Lkdyb3VuZFRydXRoEg4KBnNvdXJjZRgCIAEoCSIVChNH",
-            "cm91bmRUcnV0aFJlc3BvbnNlIiIKIEdldEN1cnJlbnRNb2RlbERlcGxveW1l",
-            "bnRSZXF1ZXN0IlYKIUdldEN1cnJlbnRNb2RlbERlcGxveW1lbnRSZXNwb25z",
-            "ZRIxChBtb2RlbF9kZXBsb3ltZW50GAEgASgLMhcuZWRnaWZ5Lk1vZGVsRGVw",
-            "bG95bWVudDKdAgoNRWRnaWZ5U2VydmljZRJICg1HZXRQcmVkaWN0aW9uEhku",
-            "ZWRnaWZ5LlByZWRpY3Rpb25SZXF1ZXN0GhouZWRnaWZ5LlByZWRpY3Rpb25S",
-            "ZXNwb25zZSIAEk4KEUNyZWF0ZUdyb3VuZFRydXRoEhouZWRnaWZ5Lkdyb3Vu",
-            "ZFRydXRoUmVxdWVzdBobLmVkZ2lmeS5Hcm91bmRUcnV0aFJlc3BvbnNlIgAS",
-            "cgoZR2V0Q3VycmVudE1vZGVsRGVwbG95bWVudBIoLmVkZ2lmeS5HZXRDdXJy",
-            "ZW50TW9kZWxEZXBsb3ltZW50UmVxdWVzdBopLmVkZ2lmeS5HZXRDdXJyZW50",
-            "TW9kZWxEZXBsb3ltZW50UmVzcG9uc2UiAEIKWghlZGdpZnlwYmIGcHJvdG8z"));
+            "CgVpbWFnZRgGIAEoCzINLmVkZ2lmeS5JbWFnZRIOCgZzb3VyY2UYByABKAkS",
+            "DwoHY2VydGFpbhgIIAEoCCI2CgVJbWFnZRIMCgR1dWlkGAEgASgJEg0KBWlt",
+            "YWdlGAIgASgMEhAKCGdyb3VwX2lkGAMgASgJIpoBCg9Nb2RlbERlcGxveW1l",
+            "bnQSCgoCaWQYASABKA0SEAoIbW9kZWxfaWQYAiABKA0SEgoKbW9kZWxfcGF0",
+            "aBgDIAEoCRITCgtjb25maWdfcGF0aBgEIAEoCRIQCgh2ZXJpZmllZBgFIAEo",
+            "CBIuCgpjcmVhdGVkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
+            "dGFtcCJUCgtHcm91bmRUcnV0aBImCgpwcmVkaWN0aW9uGAEgASgLMhIuZWRn",
+            "aWZ5LlByZWRpY3Rpb24SDQoFbGFiZWwYAiABKAkSDgoGc291cmNlGAMgASgJ",
+            "IlwKEVByZWRpY3Rpb25SZXF1ZXN0EhwKBWltYWdlGAEgASgLMg0uZWRnaWZ5",
+            "LkltYWdlEhkKEXdpdGhvdXRQcmVkaWN0aW9uGAIgASgIEg4KBnNvdXJjZRgD",
+            "IAEoCSI8ChJQcmVkaWN0aW9uUmVzcG9uc2USJgoKcHJlZGljdGlvbhgBIAEo",
+            "CzISLmVkZ2lmeS5QcmVkaWN0aW9uIk8KEkdyb3VuZFRydXRoUmVxdWVzdBIp",
+            "Cgxncm91bmRfdHJ1dGgYASABKAsyEy5lZGdpZnkuR3JvdW5kVHJ1dGgSDgoG",
+            "c291cmNlGAIgASgJIhUKE0dyb3VuZFRydXRoUmVzcG9uc2UiIgogR2V0Q3Vy",
+            "cmVudE1vZGVsRGVwbG95bWVudFJlcXVlc3QiVgohR2V0Q3VycmVudE1vZGVs",
+            "RGVwbG95bWVudFJlc3BvbnNlEjEKEG1vZGVsX2RlcGxveW1lbnQYASABKAsy",
+            "Fy5lZGdpZnkuTW9kZWxEZXBsb3ltZW50Mp0CCg1FZGdpZnlTZXJ2aWNlEkgK",
+            "DUdldFByZWRpY3Rpb24SGS5lZGdpZnkuUHJlZGljdGlvblJlcXVlc3QaGi5l",
+            "ZGdpZnkuUHJlZGljdGlvblJlc3BvbnNlIgASTgoRQ3JlYXRlR3JvdW5kVHJ1",
+            "dGgSGi5lZGdpZnkuR3JvdW5kVHJ1dGhSZXF1ZXN0GhsuZWRnaWZ5Lkdyb3Vu",
+            "ZFRydXRoUmVzcG9uc2UiABJyChlHZXRDdXJyZW50TW9kZWxEZXBsb3ltZW50",
+            "EiguZWRnaWZ5LkdldEN1cnJlbnRNb2RlbERlcGxveW1lbnRSZXF1ZXN0Giku",
+            "ZWRnaWZ5LkdldEN1cnJlbnRNb2RlbERlcGxveW1lbnRSZXNwb25zZSIAQgpa",
+            "CGVkZ2lmeXBiYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.PredictionItem), global::Edgify.PredictionItem.Parser, new[]{ "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.Prediction), global::Edgify.Prediction.Parser, new[]{ "Uuid", "Duration", "PredictedAt", "ModelId", "Predictions", "Image", "Source" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.Prediction), global::Edgify.Prediction.Parser, new[]{ "Uuid", "Duration", "PredictedAt", "ModelId", "Predictions", "Image", "Source", "Certain" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.Image), global::Edgify.Image.Parser, new[]{ "Uuid", "Image_", "GroupId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.ModelDeployment), global::Edgify.ModelDeployment.Parser, new[]{ "Id", "ModelId", "ModelPath", "ConfigPath", "Verified", "CreatedAt" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Edgify.GroundTruth), global::Edgify.GroundTruth.Parser, new[]{ "Prediction", "Label", "Source" }, null, null, null, null),
@@ -225,6 +226,7 @@ namespace Edgify {
       predictions_ = other.predictions_.Clone();
       image_ = other.image_ != null ? other.image_.Clone() : null;
       source_ = other.source_;
+      certain_ = other.certain_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -309,6 +311,17 @@ namespace Edgify {
       }
     }
 
+    /// <summary>Field number for the "certain" field.</summary>
+    public const int CertainFieldNumber = 8;
+    private bool certain_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Certain {
+      get { return certain_; }
+      set {
+        certain_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Prediction);
@@ -329,6 +342,7 @@ namespace Edgify {
       if(!predictions_.Equals(other.predictions_)) return false;
       if (!object.Equals(Image, other.Image)) return false;
       if (Source != other.Source) return false;
+      if (Certain != other.Certain) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -342,6 +356,7 @@ namespace Edgify {
       hash ^= predictions_.GetHashCode();
       if (image_ != null) hash ^= Image.GetHashCode();
       if (Source.Length != 0) hash ^= Source.GetHashCode();
+      if (Certain != false) hash ^= Certain.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -380,6 +395,10 @@ namespace Edgify {
         output.WriteRawTag(58);
         output.WriteString(Source);
       }
+      if (Certain != false) {
+        output.WriteRawTag(64);
+        output.WriteBool(Certain);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -406,6 +425,9 @@ namespace Edgify {
       }
       if (Source.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Source);
+      }
+      if (Certain != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -439,6 +461,9 @@ namespace Edgify {
       }
       if (other.Source.Length != 0) {
         Source = other.Source;
+      }
+      if (other.Certain != false) {
+        Certain = other.Certain;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -480,6 +505,10 @@ namespace Edgify {
           }
           case 58: {
             Source = input.ReadString();
+            break;
+          }
+          case 64: {
+            Certain = input.ReadBool();
             break;
           }
         }
