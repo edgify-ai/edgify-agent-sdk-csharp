@@ -9,7 +9,7 @@ namespace Example
         static void Main(string[] args)
         {
             // connection phase
-            var sdk = new Edgify.PredictionSdk("127.0.0.1", 8586);
+            var sdk = new Edgify.PredictionSdk("127.0.0.1", 50051);
             sdk.Connect();
             
             // take a prediction
@@ -22,7 +22,7 @@ namespace Example
 
             // after the transaction create the ground truth
             string label = "banana";
-            string source = "Autobuy";
+            string source = "RegularMenuSelection";
 
             sdk.CreateGroundTruth(prediction, label, source);
 
