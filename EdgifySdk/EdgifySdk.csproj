@@ -62,9 +62,9 @@
     <Compile Include="PredictionGrpc.cs" />
     <Compile Include="SamplesGrpc.cs" />
     <Compile Include="Samples.cs" />
+    <Compile Include="EdgifyAsync.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="README.md" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

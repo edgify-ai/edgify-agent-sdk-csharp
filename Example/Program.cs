@@ -5,10 +5,10 @@ namespace Example
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             // connection phase
-            var sdk = new Edgify.EdgifySdk("127.0.0.1", 50051);
+            var sdk = new EdgifySdk("127.0.0.1", 50051);
             sdk.Connect();
 
             // take a prediction

@@ -3,14 +3,13 @@ using grpc = Grpc.Core;
 
 namespace Edgify
 {
-    public class EdgifySdk
+    public partial class EdgifySdk
     {
         EdgifyService.EdgifyServiceClient client;
         AnalyticsService.AnalyticsServiceClient analytics_client;
         SamplesService.SamplesServiceClient samples_client;
-
-        string host;
-        int port;
+        readonly string host;
+        readonly int port;
 
         public EdgifySdk(string host, int port)
         {
@@ -39,37 +38,47 @@ namespace Edgify
 
         public void CreateGroundTruth(Prediction prediction, string label, string source)
         {
-            var groundTruth = new GroundTruth();
-            groundTruth.Prediction = prediction;
-            groundTruth.Label = label;
-            groundTruth.Source = source;
+            var groundTruth = new GroundTruth
+            {
+                Prediction = prediction,
+                Label = label,
+                Source = source
+            };
 
-            var request = new GroundTruthRequest();
-            request.GroundTruth = groundTruth;
-            var response = this.client.CreateGroundTruth(request);
+            var request = new GroundTruthRequest
+            {
+                GroundTruth = groundTruth
+            };
+            this.client.CreateGroundTruth(request);
         }
         
         public void DeleteSample(string uuid)
         {
             if (!String.IsNullOrEmpty(uuid))
             {
-                var request = new DeleteSampleRequest();
-                request.Uuid = uuid;
+                var request = new DeleteSampleRequest
+                {
+                    Uuid = uuid
+                };
                 this.samples_client.DeleteSample(request);
             }
         }
 
         public void StartCustomerTransaction()
         {
-            var request = new CreateAnalyticsEventRequest();
-            request.Name = "TransactionCustomerStart";
+            var request = new CreateAnalyticsEventRequest
+            {
+                Name = "TransactionCustomerStart"
+            };
             this.analytics_client.CreateEvent(request);
         }
 
         public void EndCustomerTransaction()
         {
-            var request = new CreateAnalyticsEventRequest();
-            request.Name = "TransactionCustomerEnd";
+            var request = new CreateAnalyticsEventRequest
+            {
+                Name = "TransactionCustomerEnd"
+            };
             this.analytics_client.CreateEvent(request);
         }
     }
