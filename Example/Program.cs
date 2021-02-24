@@ -21,7 +21,7 @@ namespace Example
             }
 
             Console.WriteLine("Uuid: " + prediction.Uuid);
-            Console.WriteLine("Uuid: " + prediction.Predictions);
+            Console.WriteLine("Predictions: " + prediction.Predictions);
 
             // after the transaction create the ground truth
             string label = "banana";
