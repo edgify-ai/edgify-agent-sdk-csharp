@@ -63,5 +63,10 @@ namespace Edgify
             };
             await this.analytics_client.CreateEventAsync(request);
         }
+
+        public void Disconnect()
+        {
+            this.channel.ShutdownAsync().Wait();
+        }
     }
 }

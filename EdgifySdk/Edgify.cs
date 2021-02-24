@@ -5,6 +5,7 @@ namespace Edgify
 {
     public partial class EdgifySdk
     {
+        grpc.Channel channel;
         EdgifyService.EdgifyServiceClient client;
         AnalyticsService.AnalyticsServiceClient analytics_client;
         SamplesService.SamplesServiceClient samples_client;
@@ -19,7 +20,7 @@ namespace Edgify
 
         public void Connect()
         {
-            grpc.Channel channel = new grpc.Channel(host, port, grpc.ChannelCredentials.Insecure);
+            this.channel = new grpc.Channel(host, port, grpc.ChannelCredentials.Insecure);
             this.client = new EdgifyService.EdgifyServiceClient(channel);
             this.analytics_client = new AnalyticsService.AnalyticsServiceClient(channel);
             this.samples_client = new SamplesService.SamplesServiceClient(channel);
