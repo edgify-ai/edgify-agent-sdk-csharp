@@ -18,7 +18,7 @@ namespace Edgify
             return response.Prediction;
         }
 
-        public async void CreateGroundTruthAsync(Prediction prediction, string label, string source)
+        public async Task<bool> CreateGroundTruthAsync(Prediction prediction, string label, string source)
         {
             var groundTruth = new GroundTruth
             {
@@ -32,9 +32,11 @@ namespace Edgify
                 GroundTruth = groundTruth
             };
             await this.client.CreateGroundTruthAsync(request);
+
+            return true;
         }
         
-        public async void DeleteSampleAsync(string uuid)
+        public async Task<bool> DeleteSampleAsync(string uuid)
         {
             if (!String.IsNullOrEmpty(uuid))
             {
@@ -44,6 +46,8 @@ namespace Edgify
                 };
                 await this.samples_client.DeleteSampleAsync(request);
             }
+
+            return true;
         }
 
         public async void StartCustomerTransactionAsync()

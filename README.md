@@ -105,10 +105,10 @@ namespace Example
             string label = "banana";
             string source = "RegularMenuSelection";
 
-            sdk.CreateGroundTruthAsync(prediction, label, source);
+            await sdk.CreateGroundTruthAsync(prediction, label, source);
 
             // if you need to delete a sample
-            sdk.DeleteSampleAsync(prediction.Uuid);
+            await sdk.DeleteSampleAsync(prediction.Uuid);
 
             // inform edgify on transaction start
             sdk.StartCustomerTransactionAsync();
