@@ -33,7 +33,6 @@ This is the GRPC based SDK for the Edgify Agent
 ```csharp
 using System;
 using Edgify;
-using Console;
 
 namespace Example
 {
@@ -42,16 +41,20 @@ namespace Example
         static void Main(string[] args)
         {
             // connection phase
-            var sdk = new Edgify.PredictionSdk("127.0.0.1", 50051);
+            var sdk = new Edgify.EdgifySdk("127.0.0.1", 50051);
             sdk.Connect();
-            
+
             // take a prediction
             var prediction = sdk.GetPrediction();
-            
+
             // Autobuy flag
-            if (prediction.certain == true) {
-                Console.WriteLine("using Autobuy")
+            if (prediction.Certain == true)
+            {
+                Console.WriteLine("using Autobuy");
             }
+
+            Console.WriteLine("Uuid: " + prediction.Uuid);
+            Console.WriteLine("Uuid: " + prediction.Predictions);
 
             // after the transaction create the ground truth
             string label = "banana";

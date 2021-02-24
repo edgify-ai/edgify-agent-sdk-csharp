@@ -1,19 +1,18 @@
 ﻿using System;
-using Edgify;
-using grpc = global::Grpc.Core;
+using grpc = Grpc.Core;
 
 namespace Edgify
 {
-    public class PredictionSdk
+    public class EdgifySdk
     {
         EdgifyService.EdgifyServiceClient client;
-        AnalyticsServiceClient analytics_client;
-        SamplesServiceClient samples_client;
+        AnalyticsService.AnalyticsServiceClient analytics_client;
+        SamplesService.SamplesServiceClient samples_client;
 
         string host;
         int port;
 
-        public PredictionSdk(string host, int port)
+        public EdgifySdk(string host, int port)
         {
             this.host = host;
             this.port = port;
@@ -23,13 +22,17 @@ namespace Edgify
         {
             grpc.Channel channel = new grpc.Channel(host, port, grpc.ChannelCredentials.Insecure);
             this.client = new EdgifyService.EdgifyServiceClient(channel);
-            this.analytics_client = new AnalyticsServiceClient(channel);
-            this.samples_client = new SamplesServiceClient(channel);
+            this.analytics_client = new AnalyticsService.AnalyticsServiceClient(channel);
+            this.samples_client = new SamplesService.SamplesServiceClient(channel);
         }
 
-        public Prediction GetPrediction()
+        public Prediction GetPrediction(string source = null)
         {
             var request = new PredictionRequest();
+            if (!String.IsNullOrEmpty(source))
+            {
+                request.Source = source;
+            }
             var response = client.GetPrediction(request);
             return response.Prediction;
         }
@@ -48,19 +51,26 @@ namespace Edgify
         
         public void DeleteSample(string uuid)
         {
-            if !String.IsNullOrEmpty(uuid){
-                this.samples_client.DeleteSample(uuid);
+            if (!String.IsNullOrEmpty(uuid))
+            {
+                var request = new DeleteSampleRequest();
+                request.Uuid = uuid;
+                this.samples_client.DeleteSample(request);
             }
         }
 
         public void StartCustomerTransaction()
         {
-            this.analytics_client.CreateAnalyticsEvent("TransactionCustomerStart");
+            var request = new CreateAnalyticsEventRequest();
+            request.Name = "TransactionCustomerStart";
+            this.analytics_client.CreateEvent(request);
         }
 
-        public void EndCustomerTransaction("TransactionCustomerStart")
+        public void EndCustomerTransaction()
         {
-            this.analytics_client.CreateAnalyticsEvent("TransactionCustomerEnd");
+            var request = new CreateAnalyticsEventRequest();
+            request.Name = "TransactionCustomerEnd";
+            this.analytics_client.CreateEvent(request);
         }
     }
 }
