@@ -17,7 +17,7 @@ This is the GRPC based SDK for the Edgify Agent
 * The sdk contains these API calls:
     * GetPrediction - capture an image via the camera and run a prediction (returns a prediction object)
     * CreateGroundTruth - save the sample (the response of GetPrediction) and attach a label and source to it
-    * DeleteItem - deletes a sample based on it's Uuid (originally provided in the response of GetPrediction)
+    * DeleteSample - deletes a sample based on it's Uuid (originally provided in the response of GetPrediction)
     * StartCustomerTransaction - used to inform Edgify upon customer starting a session
     * EndCustomerTransaction - used to inform Edgify upon customer ending a session
 
