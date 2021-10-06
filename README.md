@@ -1,6 +1,6 @@
 ## Edgify Agent SDK
 
-### Agent Version 1.7
+### Agent Version 1.8
 
 This is the GRPC based SDK for the Edgify Agent 
 
