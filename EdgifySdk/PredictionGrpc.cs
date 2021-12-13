@@ -18,6 +18,8 @@ namespace Edgify {
     static readonly grpc::Marshaller<global::Edgify.GroundTruthResponse> __Marshaller_edgify_GroundTruthResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Edgify.GroundTruthResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Edgify.GetCurrentModelDeploymentRequest> __Marshaller_edgify_GetCurrentModelDeploymentRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Edgify.GetCurrentModelDeploymentRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Edgify.GetCurrentModelDeploymentResponse> __Marshaller_edgify_GetCurrentModelDeploymentResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Edgify.GetCurrentModelDeploymentResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Edgify.GetCurrentLookupTableRequest> __Marshaller_edgify_GetCurrentLookupTableRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Edgify.GetCurrentLookupTableRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Edgify.GetCurrentLookupTableResponse> __Marshaller_edgify_GetCurrentLookupTableResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Edgify.GetCurrentLookupTableResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Edgify.PredictionRequest, global::Edgify.PredictionResponse> __Method_GetPrediction = new grpc::Method<global::Edgify.PredictionRequest, global::Edgify.PredictionResponse>(
         grpc::MethodType.Unary,
@@ -40,6 +42,13 @@ namespace Edgify {
         __Marshaller_edgify_GetCurrentModelDeploymentRequest,
         __Marshaller_edgify_GetCurrentModelDeploymentResponse);
 
+    static readonly grpc::Method<global::Edgify.GetCurrentLookupTableRequest, global::Edgify.GetCurrentLookupTableResponse> __Method_GetCurrentLookupTable = new grpc::Method<global::Edgify.GetCurrentLookupTableRequest, global::Edgify.GetCurrentLookupTableResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetCurrentLookupTable",
+        __Marshaller_edgify_GetCurrentLookupTableRequest,
+        __Marshaller_edgify_GetCurrentLookupTableResponse);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -50,17 +59,63 @@ namespace Edgify {
     [grpc::BindServiceMethod(typeof(EdgifyService), "BindService")]
     public abstract partial class EdgifyServiceBase
     {
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/prediction"
+      ///   additional_bindings {
+      /// 		post: "/api/v1/prediction"
+      /// 		body: "*"
+      /// 	}
+      /// };
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::Edgify.PredictionResponse> GetPrediction(global::Edgify.PredictionRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   post: "/api/v1/predictions"
+      ///   body: "*"
+      ///   additional_bindings {
+      /// 		post: "/api/v1/ground_truths"
+      /// 		body: "*"
+      /// 	}
+      /// };
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::Edgify.GroundTruthResponse> CreateGroundTruth(global::Edgify.GroundTruthRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/model_deployment"
+      /// };
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::Edgify.GetCurrentModelDeploymentResponse> GetCurrentModelDeployment(global::Edgify.GetCurrentModelDeploymentRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/lookup_table"
+      /// };
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::Edgify.GetCurrentLookupTableResponse> GetCurrentLookupTable(global::Edgify.GetCurrentLookupTableRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -90,53 +145,249 @@ namespace Edgify {
       {
       }
 
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/prediction"
+      ///   additional_bindings {
+      /// 		post: "/api/v1/prediction"
+      /// 		body: "*"
+      /// 	}
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Edgify.PredictionResponse GetPrediction(global::Edgify.PredictionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetPrediction(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/prediction"
+      ///   additional_bindings {
+      /// 		post: "/api/v1/prediction"
+      /// 		body: "*"
+      /// 	}
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Edgify.PredictionResponse GetPrediction(global::Edgify.PredictionRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetPrediction, null, options, request);
       }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/prediction"
+      ///   additional_bindings {
+      /// 		post: "/api/v1/prediction"
+      /// 		body: "*"
+      /// 	}
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncUnaryCall<global::Edgify.PredictionResponse> GetPredictionAsync(global::Edgify.PredictionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetPredictionAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/prediction"
+      ///   additional_bindings {
+      /// 		post: "/api/v1/prediction"
+      /// 		body: "*"
+      /// 	}
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncUnaryCall<global::Edgify.PredictionResponse> GetPredictionAsync(global::Edgify.PredictionRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetPrediction, null, options, request);
       }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   post: "/api/v1/predictions"
+      ///   body: "*"
+      ///   additional_bindings {
+      /// 		post: "/api/v1/ground_truths"
+      /// 		body: "*"
+      /// 	}
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Edgify.GroundTruthResponse CreateGroundTruth(global::Edgify.GroundTruthRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateGroundTruth(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   post: "/api/v1/predictions"
+      ///   body: "*"
+      ///   additional_bindings {
+      /// 		post: "/api/v1/ground_truths"
+      /// 		body: "*"
+      /// 	}
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Edgify.GroundTruthResponse CreateGroundTruth(global::Edgify.GroundTruthRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_CreateGroundTruth, null, options, request);
       }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   post: "/api/v1/predictions"
+      ///   body: "*"
+      ///   additional_bindings {
+      /// 		post: "/api/v1/ground_truths"
+      /// 		body: "*"
+      /// 	}
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncUnaryCall<global::Edgify.GroundTruthResponse> CreateGroundTruthAsync(global::Edgify.GroundTruthRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateGroundTruthAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   post: "/api/v1/predictions"
+      ///   body: "*"
+      ///   additional_bindings {
+      /// 		post: "/api/v1/ground_truths"
+      /// 		body: "*"
+      /// 	}
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncUnaryCall<global::Edgify.GroundTruthResponse> CreateGroundTruthAsync(global::Edgify.GroundTruthRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_CreateGroundTruth, null, options, request);
       }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/model_deployment"
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Edgify.GetCurrentModelDeploymentResponse GetCurrentModelDeployment(global::Edgify.GetCurrentModelDeploymentRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetCurrentModelDeployment(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/model_deployment"
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Edgify.GetCurrentModelDeploymentResponse GetCurrentModelDeployment(global::Edgify.GetCurrentModelDeploymentRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetCurrentModelDeployment, null, options, request);
       }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/model_deployment"
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncUnaryCall<global::Edgify.GetCurrentModelDeploymentResponse> GetCurrentModelDeploymentAsync(global::Edgify.GetCurrentModelDeploymentRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetCurrentModelDeploymentAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/model_deployment"
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncUnaryCall<global::Edgify.GetCurrentModelDeploymentResponse> GetCurrentModelDeploymentAsync(global::Edgify.GetCurrentModelDeploymentRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetCurrentModelDeployment, null, options, request);
+      }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/lookup_table"
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::Edgify.GetCurrentLookupTableResponse GetCurrentLookupTable(global::Edgify.GetCurrentLookupTableRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetCurrentLookupTable(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/lookup_table"
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::Edgify.GetCurrentLookupTableResponse GetCurrentLookupTable(global::Edgify.GetCurrentLookupTableRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetCurrentLookupTable, null, options, request);
+      }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/lookup_table"
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::Edgify.GetCurrentLookupTableResponse> GetCurrentLookupTableAsync(global::Edgify.GetCurrentLookupTableRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetCurrentLookupTableAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// option (google.api.http) = {
+      ///   get: "/api/v1/lookup_table"
+      /// };
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::Edgify.GetCurrentLookupTableResponse> GetCurrentLookupTableAsync(global::Edgify.GetCurrentLookupTableRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetCurrentLookupTable, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override EdgifyServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -152,7 +403,8 @@ namespace Edgify {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_GetPrediction, serviceImpl.GetPrediction)
           .AddMethod(__Method_CreateGroundTruth, serviceImpl.CreateGroundTruth)
-          .AddMethod(__Method_GetCurrentModelDeployment, serviceImpl.GetCurrentModelDeployment).Build();
+          .AddMethod(__Method_GetCurrentModelDeployment, serviceImpl.GetCurrentModelDeployment)
+          .AddMethod(__Method_GetCurrentLookupTable, serviceImpl.GetCurrentLookupTable).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -164,6 +416,7 @@ namespace Edgify {
       serviceBinder.AddMethod(__Method_GetPrediction, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Edgify.PredictionRequest, global::Edgify.PredictionResponse>(serviceImpl.GetPrediction));
       serviceBinder.AddMethod(__Method_CreateGroundTruth, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Edgify.GroundTruthRequest, global::Edgify.GroundTruthResponse>(serviceImpl.CreateGroundTruth));
       serviceBinder.AddMethod(__Method_GetCurrentModelDeployment, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Edgify.GetCurrentModelDeploymentRequest, global::Edgify.GetCurrentModelDeploymentResponse>(serviceImpl.GetCurrentModelDeployment));
+      serviceBinder.AddMethod(__Method_GetCurrentLookupTable, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Edgify.GetCurrentLookupTableRequest, global::Edgify.GetCurrentLookupTableResponse>(serviceImpl.GetCurrentLookupTable));
     }
 
   }
